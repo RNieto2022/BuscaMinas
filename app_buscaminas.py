@@ -10,8 +10,8 @@ st.set_page_config(page_title="Buscaminas", layout="centered")
 # ===== Estilos compactos para reducir espacios en el tablero, se vean los botones mas pegados (filas/columnas) =====
 st.markdown("""
 <style>
-/* Botones más pequeños y sin relleno extra */
-.stButton > button {
+/* === Área principal (grid): botones compactos === */
+[data-testid="stAppViewContainer"] .stButton > button {
     padding: 0.05rem 0.1rem;
     height: 1.8rem;
     line-height: 1;
@@ -19,12 +19,24 @@ st.markdown("""
     width: 100%;
     border-radius: 4px;
 }
-/* Menos espacio entre columnas de cada fila */
-div[data-testid="stHorizontalBlock"] { gap: 0.15rem !important; }
-/* Menos espacio entre filas del grid */
-div[data-testid="stVerticalBlock"] { gap: 0.15rem !important; }
+
+/* === Sidebar: botones más grandes y legibles === */
+.stButton > button {
+  padding: 0.25rem 0.6rem;      /* padding: espacio interno entre borde y texto/icono; agranda el área donde dar clic sin cambiar la fuente. */
+  height: 2.6rem;               /* height: altura total del botón; si es menor que el contenido, puede desbordar (salvo que intervenga min-height). */
+  line-height: 1;               /* line-height: altura de cada línea; ayuda al centrado vertical del texto (igualarlo a height centra una sola línea). */
+  min-height: 0;                /* min-height: altura mínima permitida; impide que el botón se haga más bajo que este valor. */
+  min-width: 0;                 /* min-width: ancho mínimo; evita que el botón se estreche por debajo de ese umbral. */
+  width: 50%;                  /* width: ancho del botón; 100% ocupa todo el contenedor, a 50% ocupa la mitad (quedará a la izquierda salvo margin:0 auto). */
+  border-radius: 4px;           /* border-radius: radio de las esquinas; 4px da un redondeo suave (0 = cuadrado, mayor = más redondo). */
+}
+
+/* Gaps compactos en el grid principal */
+[data-testid="stAppViewContainer"] div[data-testid="stHorizontalBlock"] { gap: 0.15rem !important; }
+[data-testid="stAppViewContainer"] div[data-testid="stVerticalBlock"]   { gap: 0.15rem !important; }
 </style>
 """, unsafe_allow_html=True)
+
 
 # ----------------------------------------------------
 def nuevo_juego(tam: int, minas: int, semilla: int | None = None):
