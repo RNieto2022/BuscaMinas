@@ -7,6 +7,25 @@ from buscaminas import Board  # Lógica del juego (buscaminas.py)
 # ----------------------------------------------------
 st.set_page_config(page_title="Buscaminas", layout="centered")
 
+# ===== Estilos compactos para reducir espacios en el tablero, se vean los botones mas pegados (filas/columnas) =====
+st.markdown("""
+<style>
+/* Botones más pequeños y sin relleno extra */
+.stButton > button {
+    padding: 0.05rem 0.1rem;
+    height: 1.8rem;
+    line-height: 1;
+    min-height: 0; min-width: 0;
+    width: 100%;
+    border-radius: 4px;
+}
+/* Menos espacio entre columnas de cada fila */
+div[data-testid="stHorizontalBlock"] { gap: 0.15rem !important; }
+/* Menos espacio entre filas del grid */
+div[data-testid="stVerticalBlock"] { gap: 0.15rem !important; }
+</style>
+""", unsafe_allow_html=True)
+
 # ----------------------------------------------------
 def nuevo_juego(tam: int, minas: int, semilla: int | None = None):
     # Crea un nuevo tablero y reinicia el estado de la sesión.
@@ -119,7 +138,7 @@ st.title("💣 Buscaminas")
 st.caption("Clic = excavar | Activa **🚩 Modo bandera** para poner/quitar banderas.")
 
 # ----------------------------------------------------
-# Pintado de la cuadrícula
+# Pintado de la cuadrícula (compacto)
 b = st.session_state.tablero
 for f in range(st.session_state.tam):
     cols = st.columns(st.session_state.tam, gap="small")
@@ -138,7 +157,8 @@ for f in range(st.session_state.tam):
             etiqueta,
             key=f"celda-{f}-{c}",
             on_click=_al_hacer_clic,
-            disabled=deshabilitar
+            disabled=deshabilitar,
+            use_container_width=True  # ocupa toda la columna
         )
 
 # ----------------------------------------------------
