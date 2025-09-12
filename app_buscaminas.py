@@ -27,7 +27,7 @@ st.markdown("""
   line-height: 1;               /* line-height: altura de cada línea; ayuda al centrado vertical del texto (igualarlo a height centra una sola línea). */
   min-height: 0;                /* min-height: altura mínima permitida; impide que el botón se haga más bajo que este valor. */
   min-width: 0;                 /* min-width: ancho mínimo; evita que el botón se estreche por debajo de ese umbral. */
-  width: 50%;                  /* width: ancho del botón; 100% ocupa todo el contenedor, a 50% ocupa la mitad (quedará a la izquierda salvo margin:0 auto). */
+  width: 100%;                  /* width: ancho del botón; 100% ocupa todo el contenedor, a 50% ocupa la mitad (quedará a la izquierda salvo margin:0 auto). */
   border-radius: 4px;           /* border-radius: radio de las esquinas; 4px da un redondeo suave (0 = cuadrado, mayor = más redondo). */
 }
 
