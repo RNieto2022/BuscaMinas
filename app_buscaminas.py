@@ -23,7 +23,7 @@ st.markdown("""
 /* === Sidebar: botones más grandes y legibles === */
 .stButton > button {
   padding: 0.25rem 0.6rem;      /* padding: espacio interno entre borde y texto/icono; agranda el área donde dar clic sin cambiar la fuente. */
-  height: 15.6rem;               /* height: altura total del botón; si es menor que el contenido, puede desbordar (salvo que intervenga min-height). */
+  height: 25.6rem;               /* height: altura total del botón; si es menor que el contenido, puede desbordar (salvo que intervenga min-height). */
   line-height: 1;               /* line-height: altura de cada línea; ayuda al centrado vertical del texto (igualarlo a height centra una sola línea). */
   min-height: 0;                /* min-height: altura mínima permitida; impide que el botón se haga más bajo que este valor. */
   min-width: 0;                 /* min-width: ancho mínimo; evita que el botón se estreche por debajo de ese umbral. */
