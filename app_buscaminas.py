@@ -10,32 +10,26 @@ st.set_page_config(page_title="Buscaminas", layout="centered")
 # ===== Estilos compactos para reducir espacios en el tablero, se vean los botones mas pegados (filas/columnas) =====
 st.markdown("""
 <style>
-/* === Botones del TABLERO (zona central) === */
+/* === Celdas del tablero (zona central) en gris === */
 [data-testid="stAppViewContainer"] .stButton > button {
-  height: 2.2rem !important;         /* altura de cada celda del tablero */
-  padding: 0.05rem 0.10rem !important;/* espacio interno botón */
-  line-height: 1 !important;          /* ayuda al centrado vertical */
-  min-height: 0 !important;           /* sin mínimo que bloquee la altura */
-  min-width: 0 !important;
-  width: 100% !important;             /* ancho completo de la columna */
-  white-space: nowrap;                /* evita salto de línea en números/íconos */
-  border-radius: 4px;
+  background-color: #e0e0e0 !important;   /* gris base */
+  border-color: #bdbdbd !important;
+  color: #111 !important;
 }
 
-/* === Botones de la barra lateral (ejem “🆕 Nuevo juego”) === */
-[data-testid="stSidebar"] .stButton > button {
-  height: 2.8rem !important;          /* hazlo más grande para que no se vea apretado */
-  padding: 0.30rem 0.70rem !important;
-  font-size: 0.7rem !important;
-  line-height: 1.2 !important;
+/* Hover (ligeramente más oscuro) */
+[data-testid="stAppViewContainer"] .stButton > button:hover {
+  background-color: #d4d4d4 !important;
 }
 
-/* === Compactar espacios entre columnas/filas del grid === */
-[data-testid="stAppViewContainer"] div[data-testid="stHorizontalBlock"] { gap: 0.15rem !important; }
-[data-testid="stAppViewContainer"] div[data-testid="stVerticalBlock"]   { gap: 0.15rem !important; }
+/* Celdas reveladas (botón deshabilitado) en un gris más claro y sin opacidad reducida */
+[data-testid="stAppViewContainer"] .stButton > button:disabled {
+  background-color: #f0f0f0 !important;
+  color: #111 !important;
+  opacity: 1 !important;  /* evita que Streamlit las ponga translúcidas */
+}
 </style>
 """, unsafe_allow_html=True)
-
 
 
 # ----------------------------------------------------
