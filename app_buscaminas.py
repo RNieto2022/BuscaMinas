@@ -22,11 +22,11 @@ st.markdown("""
   border-radius: 4px;
 }
 
-/* === Botones del SIDEBAR (p. ej., “🆕 Nuevo juego”) === */
+/* === Botones de la barra lateral (ejem “🆕 Nuevo juego”) === */
 [data-testid="stSidebar"] .stButton > button {
   height: 2.8rem !important;          /* hazlo más grande para que no se vea apretado */
   padding: 0.30rem 0.70rem !important;
-  font-size: 1rem !important;
+  font-size: 0.7rem !important;
   line-height: 1.2 !important;
 }
 
