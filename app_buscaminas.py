@@ -8,28 +8,46 @@ from buscaminas import Board  # Lógica del juego (buscaminas.py)
 st.set_page_config(page_title="Buscaminas", layout="centered")
 
 # ===== Estilos compactos para reducir espacios en el tablero, se vean los botones mas pegados (filas/columnas) =====
+
 st.markdown("""
 <style>
-/* === Celdas del tablero (zona central) en gris === */
+/* === Compactar espacios del GRID (filas/columnas) === */
+[data-testid="stAppViewContainer"] div[data-testid="stVerticalBlock"]   { gap: 0rem !important; }
+[data-testid="stAppViewContainer"] div[data-testid="stHorizontalBlock"] { gap: 0rem !important; }
+
+/* Quitar márgenes alrededor de los botones del tablero */
+[data-testid="stAppViewContainer"] .stButton { margin: 0 !important; }
+
+/* === Celdas del TABLERO: grises y compactas === */
 [data-testid="stAppViewContainer"] .stButton > button {
-  background-color: #e0e0e0 !important;   /* gris base */
+  margin: 0 !important;                 /* evita separación extra del botón */
+  padding: 0.05rem 0.10rem !important;  /* compacto */
+  height: 1.8rem !important;            /* alto de cada celda */
+  line-height: 1 !important;
+  min-height: 0 !important; min-width: 0 !important;
+  width: 100% !important;               /* ocupa toda la columna */
+  background-color: #e0e0e0 !important; /* gris base */
   border-color: #bdbdbd !important;
   color: #111 !important;
 }
-
-/* Hover (ligeramente más oscuro) */
 [data-testid="stAppViewContainer"] .stButton > button:hover {
-  background-color: #d4d4d4 !important;
+  background-color: #d4d4d4 !important; /* hover un poco más oscuro */
+}
+[data-testid="stAppViewContainer"] .stButton > button:disabled {
+  background-color: #f0f0f0 !important; /* reveladas */
+  opacity: 1 !important;                /* evita translucidez por defecto */
 }
 
-/* Celdas reveladas (botón deshabilitado) en un gris más claro y sin opacidad reducida */
-[data-testid="stAppViewContainer"] .stButton > button:disabled {
-  background-color: #f0f0f0 !important;
-  color: #111 !important;
-  opacity: 1 !important;  /* evita que Streamlit las ponga translúcidas */
+/* === Sidebar: deja el botón más grande y legible === */
+[data-testid="stSidebar"] .stButton > button {
+  height: 2.8rem !important;
+  padding: 0.30rem 0.70rem !important;
+  font-size: 1rem !important;
+  line-height: 1.2 !important;
 }
 </style>
 """, unsafe_allow_html=True)
+
 
 
 # ----------------------------------------------------
