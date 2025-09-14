@@ -10,32 +10,32 @@ st.set_page_config(page_title="Buscaminas", layout="centered")
 # ===== Estilos compactos para reducir espacios en el tablero, se vean los botones mas pegados (filas/columnas) =====
 st.markdown("""
 <style>
-/* === Área principal (grid): botones compactos === */
+/* === Botones del TABLERO (zona central) === */
 [data-testid="stAppViewContainer"] .stButton > button {
-    padding: 0.05rem 0.1rem;
-    height: 1.8rem;
-    line-height: 1;
-    min-height: 0; min-width: 0;
-    width: 100%;
-    border-radius: 4px;
+  height: 2.2rem !important;         /* altura de cada celda del tablero */
+  padding: 0.05rem 0.10rem !important;/* espacio interno botón */
+  line-height: 1 !important;          /* ayuda al centrado vertical */
+  min-height: 0 !important;           /* sin mínimo que bloquee la altura */
+  min-width: 0 !important;
+  width: 100% !important;             /* ancho completo de la columna */
+  white-space: nowrap;                /* evita salto de línea en números/íconos */
+  border-radius: 4px;
 }
 
-/* === Sidebar: botones más grandes y legibles === */
-.stButton > button {
-  padding: 0.25rem 0.6rem;      /* padding: espacio interno entre borde y texto/icono; agranda el área donde dar clic sin cambiar la fuente. */
-  height: 95.6rem;               /* height: altura total del botón; si es menor que el contenido, puede desbordar (salvo que intervenga min-height). */
-  line-height: 1;               /* line-height: altura de cada línea; ayuda al centrado vertical del texto (igualarlo a height centra una sola línea). */
-  min-height: 0;                /* min-height: altura mínima permitida; impide que el botón se haga más bajo que este valor. */
-  min-width: 0;                 /* min-width: ancho mínimo; evita que el botón se estreche por debajo de ese umbral. */
-  width: 100%;                  /* width: ancho del botón; 100% ocupa todo el contenedor, a 50% ocupa la mitad (quedará a la izquierda salvo margin:0 auto). */
-  border-radius: 4px;           /* border-radius: radio de las esquinas; 4px da un redondeo suave (0 = cuadrado, mayor = más redondo). */
+/* === Botones del SIDEBAR (p. ej., “🆕 Nuevo juego”) === */
+[data-testid="stSidebar"] .stButton > button {
+  height: 2.8rem !important;          /* hazlo más grande para que no se vea apretado */
+  padding: 0.30rem 0.70rem !important;
+  font-size: 1rem !important;
+  line-height: 1.2 !important;
 }
 
-/* Gaps compactos en el grid principal */
+/* === Compactar espacios entre columnas/filas del grid === */
 [data-testid="stAppViewContainer"] div[data-testid="stHorizontalBlock"] { gap: 0.15rem !important; }
 [data-testid="stAppViewContainer"] div[data-testid="stVerticalBlock"]   { gap: 0.15rem !important; }
 </style>
 """, unsafe_allow_html=True)
+
 
 
 # ----------------------------------------------------
