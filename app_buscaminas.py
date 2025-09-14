@@ -8,7 +8,7 @@ from buscaminas import Board  # Lógica del juego (buscaminas.py)
 st.set_page_config(page_title="Buscaminas", layout="centered")
 
 # ===== Estilos compactos para reducir espacios en el tablero, se vean los botones mas pegados (filas/columnas) =====
-st.markdown("""
+st.markdown(
 <style>
 /* === Área principal (grid): botones compactos === */
 [data-testid="stAppViewContainer"] .stButton > button {
@@ -35,7 +35,7 @@ st.markdown("""
 [data-testid="stAppViewContainer"] div[data-testid="stHorizontalBlock"] { gap: 0.15rem !important; }
 [data-testid="stAppViewContainer"] div[data-testid="stVerticalBlock"]   { gap: 0.15rem !important; }
 </style>
-""", unsafe_allow_html=True)
+, unsafe_allow_html=True)
 
 
 # ----------------------------------------------------
